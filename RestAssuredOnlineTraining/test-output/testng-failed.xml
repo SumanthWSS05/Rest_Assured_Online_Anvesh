@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="requestChaining.PetStore">
+      <class name="reqResCrudOperations.CreateUser">
         <methods>
-          <include name="createPet"/>
+          <include name="createAUser"/>
         </methods>
-      </class> <!-- requestChaining.PetStore -->
+      </class> <!-- reqResCrudOperations.CreateUser -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

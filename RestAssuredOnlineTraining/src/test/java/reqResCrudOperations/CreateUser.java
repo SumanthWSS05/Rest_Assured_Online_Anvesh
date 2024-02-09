@@ -4,21 +4,30 @@ import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 
 public class CreateUser {
 
 	@Test
 	public void createAUser() {
-		RestAssured.given()
+
+		pojo.CreateUser user1 = new pojo.CreateUser();
+		user1.setName("Kamal");
+		user1.setJob("SDET");
+	
+		Response res = RestAssured.given()
 			.contentType(ContentType.JSON)
-			.body("{\r\n"
-					+ "    \"name\": \"Sumanth\",\r\n"
-					+ "    \"job\": \"Trainer\"\r\n"
-					+ "}")
+			.body(user1)
 		.when()
-			.post("https://reqres.in/api/users")
+			.post("https://reqres.in/api/users");
 			
-		.then()
-			.log().all();
+		res.then().log().all();
+		
+		System.out.println("=============================================");
+		pojo.CreateUser resObj = res.as(pojo.CreateUser.class);
+		System.out.println(resObj.getId());
+		System.out.println(resObj.getCreatedAt());
+		System.out.println(resObj.getName());
+		System.out.println(resObj.getJob());
 	}
 }

@@ -6,6 +6,10 @@ public class CreateRepo {
 	private String description;
 	private boolean private_ ;
 	
+	public CreateRepo() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public CreateRepo(String name, String description, boolean private_) {
 		super();
 		this.name = name;
